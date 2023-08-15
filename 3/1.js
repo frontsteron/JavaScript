@@ -15,13 +15,13 @@ function cube(number) {
 }
 
 function calculateCube() {
-    var inputElement = document.getElementById('numberInput');
-    var resultElement = document.getElementById('result');
+    let inputElement = document.getElementById('numberInput');
+    let resultElement = document.getElementById('result');
 
-    var inputNumber = parseFloat(inputElement.value);
+    let inputNumber = parseFloat(inputElement.value);
     
     if (!isNaN(inputNumber)) {
-        var result = cube(inputNumber);
+        let result = cube(inputNumber);
         resultElement.textContent = 'Число ' + inputNumber + ' в кубе равно ' + result;
     } else {
         resultElement.textContent = 'Пожалуйста, введите корректное число.';
