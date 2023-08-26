@@ -1,4 +1,6 @@
-﻿function findElementByClass(element, targetClass) {
+﻿// Напишите рекурсивную функцию findElementByClass, которая принимает корневой элемент дерева DOM и название класса в качестве аргументов и возвращает первый найденный элемент с указанным классом в этом дереве.
+
+function findElementByClass(element, targetClass) {
    if (element.classList.contains(targetClass)) {
      return element;
    }
