@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../style/style.css">
+   <script src="https://unpkg.com/vue@next"></script>
+   <script src="../scripts/script.js" defer></script>
+   <title>Blog</title>
+</head>
+
+<body>
+   <header class="header center">
+      <nav class="logo">
+         <img src="../img/Logo.svg" alt="logo" class="logo__img">
+         <a href="../index.html" class="logo__text">Interno</a>
+      </nav>
+      <nav class="menu">
+         <a href="../index.html" class="menu__home">Home</a>
+         <a href="#" class="menu__project">Project</a>
+         <a href="./blog.html" class="menu__blog">Blog</a>
+      </nav>
+   </header>
+   <main class="blog-main ">
+      <section class="intro">
+         <div class="intro__title">
+            <h2 class="intro__heading">Articles & News</h2>
+            <div class="intro__subhead-box">
+               <a href="../index.html" class="intro__subhead-box-item">Home</a>
+               <a href="blog.html" class="intro__subhead-box-item">Blog</a>
+            </div>
+         </div>
+      </section>
+      <section class="blog-post center">
+         <h2 class="blog-post__title">Latest Post</h2>
+         <div class="blog-post__latest-post">
+            <div class="blog-post__latest-post-subbox">
+               <img class="blog-post__latest-post-image" src="../img/Blog_Latest_Post.svg" alt="kitchen">
+               <article class="blog-post__latest-post-text">
+                  <h3 class="blog-post__latest-post-head">Low Cost Latest Invented Interior Designing Ideas</h3>
+                  <p class="blog-post__latest-post-prgth blog-post__latest-post-prgth_1">Lorem ipsum dolor sit
+                     amet, adipiscing Aliquam eu sem
+                     vitae turpis dignissim maximus.posuere in.Contrary to popular
+                     belief.
+                  </p>
+                  <p class="blog-post__latest-post-prgth blog-post__latest-post-prgth_2">Lorem Ipsum is not simply
+                     random text. It has roots in a
+                     piece of classica.</p>
+                  <div class="blog__data-arrow-box blog-post__data-arrow-box">
+                     <p class="blog__date">26 December,2022</p>
+                     <a href="#" class="blog__arrowbox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
+                           <circle cx="26" cy="26.5" r="26" fill="#F4F0EC" />
+                           <path d="M23.771 33.1855L29.7139 26.4998L23.771 19.8141" stroke="#292F36" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                     </a>
+                  </div>
+               </article>
+            </div>
+         </div>
+      </section>
+      <section class="blog center">
+         <h2 class="blog__header">Articles & News</h2>
+         <div class="blog__items" id="cardbox-container">
+            <div class="blog__item" v-for="article in articlesData" :key="article.id">
+               <img :src="article.src" :alt="article.alt" class="blog__item_img">
+               <h3 class="blog__item_text">{{article.title}}</h3>
+               <div class="blog__item_content">
+                  <p class="blog__item_content-date">{{article.date}}</p>
+                  <a href="../pages/blog_details.html" class="blog__item_content-elem">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
+                        <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                        <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2"
+                           stroke-linecap="round" stroke-linejoin="round" />
+                     </svg>
+                  </a>
+               </div>
+               <a href="#" class="blog__item_tag">{{article.button}}</a>
+            </div>
+         </div>
+         <div class="articles__pagination">
+            <span class="articles__pagination-item">01</span>
+            <span class="articles__pagination-item">02</span>
+            <span class="articles__pagination-item">03</span>
+            <span class="articles__pagination-item"><svg width="9" height="16" viewBox="0 0 9 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.55714 15L7.5 8.31429L1.55714 1.62857" stroke="#292F36" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" />
+               </svg>
+            </span>
+         </div>
+      </section>
+   </main>
+   <footer class="footer center">
+      <div class="footer__main">
+         <nav class="logo">
+            <img src="../img/Logo.svg" alt="logo" class="logo__img">
+            <a href="../index.html" class="logo__text">Interno</a>
+         </nav>
+         <p class="footer__main_text">
+            It is a long established fact that a reader will be distracted lookings.
+         </p>
+         <div class="footer__main_links">
+            <a href="#" class="footer__main_link">
+               <img src="../img/link1.svg" alt="link">
+            </a>
+            <a href="#" class="footer__main_link">
+               <img src="../img/link2.svg" alt="link">
+            </a>
+         </div>
+      </div>
+      <div class="footer__pages">
+         <p class="footer__pages_title">
+            Pages
+         </p>
+         <a href="../index.html" class="footer__pages_subtitle">
+            Home
+         </a>
+         <a href="#" class="footer__pages_subtitle">
+            Project
+         </a>
+         <a href="./blog.html" class="footer__pages_subtitle">
+            Blog
+         </a>
+      </div>
+      <div class="footer__empty"></div>
+      <div class="footer__contact">
+         <p class="footer__contact_title">Contact</p>
+         <p class="footer__contact_address">
+            55 East Birchwood Ave. Brooklyn, New York 11201
+         </p>
+         <p class="footer__contact_mail">
+            contact@interno.com
+         </p>
+         <p class="footer__contact_phone">
+            (123) 456 - 7890
+         </p>
+      </div>
+   </footer>
+
+</body>
+
+</html>

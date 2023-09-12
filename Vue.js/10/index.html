@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://unpkg.com/vue@next"></script>
+   <script defer src="script.js"></script>
+   <title>HW1</title>
+</head>
+
+<body>
+   <div id="app">
+      <button @click="reverseButtonText">{{ buttonText }}</button>
+      <ul>
+         <li v-for="(item, index) in list" :key="index">
+            {{ item }}
+            <button @click="removeItem(index)">Удалить</button>
+         </li>
+      </ul>
+      <button @click="addItemToList">Добавить</button>
+   </div>
+</body>
+
+</html>
