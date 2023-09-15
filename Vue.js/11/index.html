@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Список товаров</title>
+</head>
+
+<body>
+   <div id="app">
+      <h1>Список товаров</h1>
+      <label for="sort">Сортировать по цене:</label>
+      <select id="sort" v-model="selectedSort">
+         <option value="asc">По возрастанию</option>
+         <option value="desc">По убыванию</option>
+      </select>
+      <ul>
+         <li v-for="product in sortedProducts" :key="product.name">
+            {{ product.name }} - {{ product.price }} руб.
+         </li>
+      </ul>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <script>
+      function generateRandomPrice() {
+         const randomPrice = Math.floor(Math.random() * 200) * 5 + 5; // Генерация случайной цены, кратной 5 от 5 до 1000 руб.
+         return randomPrice;
+      }
+
+      new Vue({
+         el: '#app',
+         data: {
+            products: [
+               { name: 'Товар 1', price: generateRandomPrice() },
+               { name: 'Товар 2', price: generateRandomPrice() },
+               { name: 'Товар 3', price: generateRandomPrice() },
+               { name: 'Товар 4', price: generateRandomPrice() },
+            ],
+            selectedSort: 'asc',
+         },
+         computed: {
+            sortedProducts: function () {
+               return this.products.slice().sort((a, b) => {
+                  if (this.selectedSort === 'asc') {
+                     return a.price - b.price;
+                  } else {
+                     return b.price - a.price;
+                  }
+               });
+            },
+         },
+      });
+   </script>
+</body>
+
+</html>
