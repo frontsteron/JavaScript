@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Blog Details</title>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+   <div id="app">
+      <!-- Встроенный компонент -->
+      <div>
+         <blogs-list></blogs-list>
+      </div>
+   </div>
+
+   <!-- Файлы компонентов -->
+   <script>
+      Vue.component('blogs-list', {
+         template: `
+        <div>
+          <label for="tagSelect">Выберите тег:</label>
+          <select id="tagSelect" v-model="selectedTag">
+            <option value="">Все</option>
+            <option value="Киоск">Киоск</option>
+            <option value="Хлеб">Хлеб</option>
+            <option value="Жизнь">Жизнь</option>
+            <option v-for="tag in tags" :value="tag">{{ tag }}</option>
+          </select>
+
+          <div class="blog-list">
+            <div v-for="blog in filteredBlogs" :key="blog.id" class="blog-item">
+              <blog :blog="blog" /> <!-- Передаем статью в компонент Blog.vue -->
+            </div>
+          </div>
+        </div>
+      `,
+         data() {
+            return {
+               selectedTag: "",
+               tags: ["Киоск", "Хлеб", "Жизнь"], // Добавлены теги
+               blogs: [
+                  {
+                     id: 1,
+                     title: "Заголовок статьи 1",
+                     content: "Содержание статьи 1...",
+                     tags: ["Киоск", "Хлеб"],
+                  },
+                  {
+                     id: 2,
+                     title: "Заголовок статьи 2",
+                     content: "Содержание статьи 2...",
+                     tags: ["Жизнь", "Киоск"],
+                  },
+                  {
+                     id: 3,
+                     title: "Заголовок статьи 3",
+                     content: "Содержание статьи 3...",
+                     tags: ["Хлеб", "Киоск"],
+                  },
+               ],
+            };
+         },
+      });
+
+      new Vue({
+         el: "#app",
+      });
+   </script>
+</body>
+
+</html>
